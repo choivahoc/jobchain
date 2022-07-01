@@ -1,3 +1,9 @@
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
   .s006 {
     min-height: 100vh;
     display: -ms-flexbox;
@@ -8,17 +14,17 @@
     -ms-flex-align: center;
         align-items: center;
     font-family: 'Poppins', sans-serif;
-    background: url("../assets/images/search_background.jpg");
+    background: url("../assets/images/img_2.png");
     background-size: cover;
     background-position: center center;
     padding: 15px;
   }
-  
+
   .s006 form {
     width: 100%;
-    max-width: 790px;
+    max-width: 900px;
   }
-  
+
   .s006 form legend {
     font-size: 36px;
     color: #fff;
@@ -26,18 +32,62 @@
     text-align: center;
     margin-bottom: 59px;
   }
-  
+
   .s006 form .inner-form {
     width: 100%;
     margin-bottom: 17px;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
   }
-  
+
+  .type-search .select-box {
+    width: 120px;
+    height: 70px;
+    border-radius: 34px;
+    border: none;
+    padding: 5px;
+    background: #fff;
+    font-size: 18px;
+  }
+
   .s006 form .inner-form .input-field {
     height: 70px;
     width: 100%;
     position: relative;
   }
-  
+
+  .button-search {
+    height: 70px;
+    border-radius: 34px;
+    backface-visibility: hidden;
+    background-color: #3498db;
+    border-width: 0;
+    box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.15;
+    margin: 12px 0 0;
+    outline: none;
+    overflow: hidden;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transform: translateZ(0);
+    transition: all .2s,box-shadow .08s ease-in;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 30%;
+  }
+
   .s006 form .inner-form .input-field input {
     height: 100%;
     width: 100%;
@@ -51,27 +101,27 @@
     color: #666;
     border-radius: 34px;
   }
-  
+
   .s006 form .inner-form .input-field input.placeholder {
     color: #ccc;
     font-size: 18px;
   }
-  
+
   .s006 form .inner-form .input-field input:-moz-placeholder {
     color: #ccc;
     font-size: 18px;
   }
-  
+
   .s006 form .inner-form .input-field input::-webkit-input-placeholder {
     color: #ccc;
     font-size: 18px;
   }
-  
+
   .s006 form .inner-form .input-field input:hover, .s006 form .inner-form .input-field input:focus {
     box-shadow: none;
     outline: 0;
   }
-  
+
   .s006 form .inner-form .input-field .btn-search {
     width: 70px;
     display: -ms-flexbox;
@@ -90,27 +140,27 @@
         justify-content: center;
     align-items: center;
   }
-  
+
   .s006 form .inner-form .input-field .btn-search svg {
     fill: #ccc;
     width: 30px;
     height: 30px;
     transition: all .2s ease-out, color .2s ease-out;
   }
-  
+
   .s006 form .inner-form .input-field .btn-search:hover, .s006 form .inner-form .input-field .btn-search:focus {
     outline: 0;
     box-shadow: none;
   }
-  
+
   .s006 form .inner-form .input-field .btn-search:hover svg, .s006 form .inner-form .input-field .btn-search:focus svg {
     fill: #666;
   }
-  
+
   .s006 form .suggestion-wrap {
     padding: 0 15px;
   }
-  
+
   .s006 form .suggestion-wrap span {
     font-size: 14px;
     font-family: 'Helvetica', sans-serif;
@@ -123,7 +173,7 @@
     margin-right: 10px;
     margin-bottom: 10px;
   }
-  
+
   @media screen and (max-width: 767px) {
     .s006 form .inner-form .input-field {
       margin-bottom: 20px;
@@ -138,7 +188,7 @@
       height: 26px;
     }
   }
-  
+
 
   th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
     padding-left: 24px;
