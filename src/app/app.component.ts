@@ -11,7 +11,7 @@ export class AppComponent implements OnInit{
   searchWord: string | undefined;
   dataSource: any;
 
-  displayedColumns: string[] = ['tx_hash', 'blockId', 'method'];
+  displayedColumns: string[] = ['tx_hash', 'blockId', 'method', 'mintdata'];
 
   types = [
     {
@@ -64,6 +64,7 @@ export class AppComponent implements OnInit{
     this.contractService.getInfoTransactions(body).subscribe((value) => {
       this.dataSource = value.data;
       this.isLoading = false;
+      this.displayedColumns = ['tx_hash', 'blockId', 'method', 'mintdata'];
     });
   }
 
@@ -74,6 +75,7 @@ export class AppComponent implements OnInit{
     this.contractService.getDetailTransactions(id).subscribe((value) => {
       this.dataSource = [value.data];
       this.isLoading = false;
+      this.displayedColumns = ['tx_hash', 'blockId', 'method', 'mintdata'];
     });
 
   }
