@@ -9,4 +9,4 @@ CMD ['ng', 'serve', '--host', '0.0.0.0']
 
 #stage 2
 FROM nginx:alpine
-COPY --from=node /jobchain/dist/jobchains /usr/share/nginx/html
+COPY --from=node /jobchain/dist/jobchain /usr/share/nginx/html
