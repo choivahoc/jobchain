@@ -63,8 +63,9 @@ export class AppComponent implements OnInit{
 
     this.contractService.getInfoTransactions(body).subscribe((value) => {
       this.dataSource = value.data;
+      console.log(this.dataSource);
       this.isLoading = false;
-      this.displayedColumns = ['tx_hash', 'blockId', 'method', 'mintdata'];
+      this.displayedColumns = ['tx_hash', 'user_id', 'full_name', 'date_of_birth', 'province', 'academic_ability', 'awarded_date'];
     });
   }
 
@@ -75,8 +76,29 @@ export class AppComponent implements OnInit{
     this.contractService.getDetailTransactions(id).subscribe((value) => {
       this.dataSource = [value.data];
       this.isLoading = false;
-      this.displayedColumns = ['tx_hash', 'blockId', 'method', 'mintdata'];
+      this.displayedColumns = ['tx_hash', 'user_id', 'full_name', 'date_of_birth', 'province', 'academic_ability', 'awarded_date'];
     });
-
   }
+
+  getMintData(element: any): any {
+    return element?.messages[0].msg?.mint?.extension;
+  }
+
+  getDiplomaInfo(element: any): any {
+    return this.getMintData(element)?.diplomas;
+  }
+
+  getGraduateInfo(element: any): any {
+    return this.getDiplomaInfo(element)?.graduate_info?.length > 0
+      ? this.getDiplomaInfo(element)?.graduate_info[0] : this.getDiplomaInfo(element)?.graduate_info;
+  }
+
+  getUserInfo(element:any): any {
+    return this.getGraduateInfo(element)?.vi ? this.getGraduateInfo(element).vi.user : this.getGraduateInfo(element)?.user;
+  }
+
+
+
+
+
 }
