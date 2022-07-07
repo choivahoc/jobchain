@@ -1,5 +1,5 @@
 #stage 1
-FROM node:12.18.1 as node
+FROM node:12.22.6 as node
 WORKDIR /jobchain
 COPY . .
 RUN npm install
