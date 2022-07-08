@@ -65,7 +65,9 @@ export class AppComponent implements OnInit{
       this.dataSource = value.data;
       console.log(this.dataSource);
       this.isLoading = false;
-      this.displayedColumns = ['tx_hash', 'user_id', 'full_name', 'date_of_birth', 'province', 'academic_ability', 'awarded_date'];
+      this.displayedColumns = ['tx_hash', 'user_id', 'full_name', 'date_of_birth', 'province','school_name',
+        'department_name', 'major','academic_ability', 'awarded_date'];
+
     });
   }
 
@@ -76,7 +78,8 @@ export class AppComponent implements OnInit{
     this.contractService.getDetailTransactions(id).subscribe((value) => {
       this.dataSource = [value.data];
       this.isLoading = false;
-      this.displayedColumns = ['tx_hash', 'user_id', 'full_name', 'date_of_birth', 'province', 'academic_ability', 'awarded_date'];
+      this.displayedColumns = ['tx_hash', 'user_id', 'full_name', 'date_of_birth', 'province','school_name',
+        'department_name', 'major','academic_ability', 'awarded_date'];
     });
   }
 
@@ -92,6 +95,20 @@ export class AppComponent implements OnInit{
     return this.getDiplomaInfo(element)?.graduate_info?.length > 0
       ? this.getDiplomaInfo(element)?.graduate_info[0] : this.getDiplomaInfo(element)?.graduate_info;
   }
+
+  getSchoolInfo(element: any): any {
+    console.log(this.getGraduateInfo(element)?.school);
+    return this.getGraduateInfo(element)?.school;
+  }
+
+  getDepartmentInfo(element: any): any {
+    return this.getSchoolInfo(element)?.department;
+  }
+
+  getMajorInfo(element: any): any {
+    return this.getDepartmentInfo(element)?.major;
+  }
+
 
   getUserInfo(element:any): any {
     return this.getGraduateInfo(element)?.vi ? this.getGraduateInfo(element).vi.user : this.getGraduateInfo(element)?.user;
